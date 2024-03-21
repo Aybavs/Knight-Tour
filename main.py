@@ -4,7 +4,7 @@ from tkinter import messagebox
 class Chessboard:
     def __init__(self, master):
         self.master = master
-        self.size = 4
+        self.size = 5
         self.score = 0
         self.selected_squares = []
         self.player_name = None
@@ -41,8 +41,8 @@ class Chessboard:
         self.size_label = tk.Label(self.size_button_frame, text="Board Size:")
         self.size_label.pack(side=tk.LEFT)
         self.size_var = tk.StringVar(self.size_button_frame)
-        self.size_var.set("4x4")
-        self.size_option = tk.OptionMenu(self.size_button_frame, self.size_var, "4x4", "5x5", "6x6", "7x7", "8x8", command=self.change_size)
+        self.size_var.set("5x5")
+        self.size_option = tk.OptionMenu(self.size_button_frame, self.size_var, "5x5", "6x6", "7x7", "8x8","9x9", command=self.change_size)
         self.size_option.pack(side=tk.LEFT)
 
         self.leaderboard_frame = tk.Frame(self.master)
