@@ -19,6 +19,9 @@ class Chessboard:
         self.name_entry.pack()
         self.name_button = tk.Button(self.name_window, text="Submit", command=self.save_name)
         self.name_button.pack()
+        self.name_window.transient(self.master)
+        self.master.wait_window(self.name_window) 
+
 
     def save_name(self):
         self.player_name = self.name_entry.get()
@@ -37,7 +40,6 @@ class Chessboard:
 
         self.size_label = tk.Label(self.size_button_frame, text="Board Size:")
         self.size_label.pack(side=tk.LEFT)
-
         self.size_var = tk.StringVar(self.size_button_frame)
         self.size_var.set("4x4")
         self.size_option = tk.OptionMenu(self.size_button_frame, self.size_var, "4x4", "5x5", "6x6", "7x7", "8x8", command=self.change_size)
@@ -136,9 +138,9 @@ class Chessboard:
             leaderboard_filename = f"leaderboard_{self.size}x{self.size}.txt"
             with open(leaderboard_filename, "a") as file:
                 file.write(f"{self.player_name}: {self.score}\n")
-            messagebox.showinfo("Game Over", f"{self.player_name}, your score is {self.score}.")
+            messagebox.showinfo("Game Over", f"{self.player_name}, your score is {self.score}. Made by aybavs&burhanmorningstar.")
         else:
-            messagebox.showinfo("Game Over", f"Your score is {self.score}.")
+            messagebox.showinfo("Game Over", f"Your score is {self.score}. Made by aybavs&burhanmorningstar.")
 
     def check_move(self, start, end):
         x1, y1 = start
