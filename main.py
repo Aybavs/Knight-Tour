@@ -3,7 +3,7 @@ from tkinter import messagebox
 
 class Chessboard:
     def __init__(self, master):
-        self.master = master
+        self.master = master 
         self.size = 5
         self.score = 0
         self.selected_squares = []
